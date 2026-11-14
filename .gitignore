@@ -1,0 +1,12 @@
+# Local editor settings and temporary files
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# Credentials, dependencies, and deployment state
+.env
+.env.*
+!.env.example
+node_modules/
+.netlify/

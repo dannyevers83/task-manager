@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A simple task manager built by Danny Evers with vanilla JavaScript. Add, complete, and filter tasks, saved locally in your browser."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Task Manager — Danny Evers</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="workspace">
+      <header class="page-header">
+        <a class="back-link" href="https://dannyevers.xyz/"
+          >&larr; Danny Evers</a
+        >
+        <p class="eyebrow">A little space to focus</p>
+        <h1>
+          Task Manager<span class="heading-dot" aria-hidden="true">.</span>
+        </h1>
+        <p class="intro">Make a plan. Take it one task at a time.</p>
+      </header>
+
+      <section class="task-panel" aria-labelledby="tasks-heading">
+        <div class="panel-header">
+          <h2 id="tasks-heading">Your tasks</h2>
+          <p id="task-count" class="task-count" role="status"></p>
+        </div>
+
+        <form id="task-form">
+          <label for="task-title">What would you like to do?</label>
+          <div class="input-row">
+            <input
+              id="task-title"
+              type="text"
+              placeholder="e.g. Build something useful"
+              maxlength="200"
+              required
+            />
+            <button class="add-button" type="submit">
+              Add task <span aria-hidden="true">+</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="filter-bar" role="group" aria-label="Filter tasks">
+          <button
+            id="show-all"
+            class="filter-button"
+            type="button"
+            aria-pressed="false"
+          >
+            All tasks
+          </button>
+          <button
+            id="show-incomplete"
+            class="filter-button"
+            type="button"
+            aria-pressed="true"
+          >
+            To do
+          </button>
+        </div>
+
+        <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+      </section>
+
+      <footer class="page-footer">
+        <p>Saved in this browser. One task at a time.</p>
+        <p class="project-credit">
+          Built by <a href="https://dannyevers.xyz/">Danny Evers</a> with HTML,
+          CSS &amp; JavaScript.
+        </p>
+        <p id="storage-status" class="storage-status" role="status"></p>
+      </footer>
+    </main>
+  </body>
+</html>

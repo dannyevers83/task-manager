@@ -1,0 +1,314 @@
+/* Colors and base styles */
+
+:root {
+  color-scheme: dark;
+  --background: #0f172a;
+  --surface: #172238;
+  --text: #e2e8f0;
+  --muted: #a8b5c8;
+  --accent: #5eead4;
+  --border: #33435b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  line-height: 1.6;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.25em;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Page introduction */
+
+.workspace {
+  width: min(100% - 3rem, 760px);
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.back-link {
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.back-link:hover,
+.page-footer a:hover {
+  color: var(--accent);
+}
+
+.eyebrow {
+  margin: 3.5rem 0 0.5rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 1.15;
+}
+
+.heading-dot {
+  color: var(--accent);
+}
+
+.intro {
+  margin: 1rem 0 2.5rem;
+  color: var(--muted);
+}
+
+/* Task panel and entry form */
+
+.task-panel {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+}
+
+.panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.task-count {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.8125rem;
+}
+
+#task-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+#task-title {
+  flex: 1 1 200px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--background);
+  color: var(--text);
+}
+
+#task-title::placeholder {
+  color: #8fa0b7;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 48px;
+  padding: 0.75rem 1.125rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 650;
+}
+
+.add-button:hover {
+  background: #99f6e4;
+}
+
+/* Filters */
+
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.75rem 0 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.filter-button {
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.filter-button:hover {
+  color: var(--text);
+  background: #223149;
+}
+
+.filter-button[aria-pressed='true'] {
+  border-color: #406d70;
+  background: #203f46;
+  color: var(--accent);
+}
+
+/* Task rows and empty state */
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 76px;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.task-item:last-child {
+  border-bottom: 0;
+}
+
+.task-label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.875rem;
+  min-width: 0;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.task-checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.task-title {
+  overflow-wrap: anywhere;
+}
+
+.is-complete .task-title {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.delete-button {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.delete-button:hover {
+  background: #422c3a;
+  color: #fecdd3;
+}
+
+.empty-state {
+  padding: 2.5rem 0.5rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Footer and storage feedback */
+
+.page-footer {
+  padding-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.page-footer p {
+  margin: 0.375rem 0;
+}
+
+.project-credit {
+  font-size: 0.75rem;
+}
+
+.storage-status {
+  color: #fde68a;
+}
+
+.storage-status:empty {
+  display: none;
+}
+
+/* Larger screens */
+
+@media (min-width: 640px) {
+  .workspace {
+    padding-top: 4rem;
+  }
+
+  .task-panel {
+    padding: 2rem;
+  }
+}
