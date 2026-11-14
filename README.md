@@ -2,6 +2,10 @@
 
 A responsive task manager built with HTML, CSS, and vanilla JavaScript. This project explores DOM manipulation, events, array methods, immutable updates, and saving data in the browser.
 
+## Live Demo
+
+[Try Task Manager](https://danny-task-manager.netlify.app/)
+
 ## Features
 
 - Add tasks and reject empty titles
